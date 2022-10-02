@@ -1,6 +1,6 @@
-package model.repository;
+package com.fmatheus.app.model.repository;
 
-import model.entity.Client;
+import com.fmatheus.app.model.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
