@@ -37,7 +37,7 @@
 > Primeiramente, edite o arquivo <code>***application.yml***</code> e informe as seguintes variáveis de ambiente:
 > - ${DATASOURCE_URL}=<code><***sua url do banco***></code>.
 > - ${DATASOURCE_USERNAME}=<code><***seu usuário do banco***></code>.
-> - ${DATASOURCE_PASSWORD}=<code><***sua senhado banco***></code>.
+> - ${DATASOURCE_PASSWORD}=<code><***sua senha do banco***></code>.
 
 > Abra o projeto no Intellij (ou na sua IDE preferia), e execute-o utilizando o Maven.  
 > Para testar os endpoints no  <code>***Postman***</code>, abra-o  e importe o arquivo  <code>***postman_collection.json***</code> que se encontra na raiz do projeto.
