@@ -1,4 +1,4 @@
-package model.entity;
+package com.fmatheus.app.model.entity;
 
 import lombok.*;
 
@@ -40,7 +40,7 @@ public class Contact implements Serializable {
 
     @ToString.Exclude
     @JoinColumn(name = "id_person", referencedColumnName = "id", nullable = false)
-    @ManyToOne(optional = false)
+    @OneToOne(optional = false)
     private Person person;
 
 }

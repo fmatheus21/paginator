@@ -1,4 +1,4 @@
-package model.entity;
+package com.fmatheus.app.model.entity;
 
 import lombok.*;
 

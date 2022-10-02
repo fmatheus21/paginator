@@ -1,11 +1,10 @@
-package model.entity;
+package com.fmatheus.app.model.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  * @author Fernando Matheus
@@ -42,12 +41,12 @@ public class Person implements Serializable {
     private PersonType personType;
 
     @ToString.Exclude
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
-    private Collection<Address> addresses;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "person")
+    private Address address;
 
     @ToString.Exclude
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
-    private Collection<Contact> contacts;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "person")
+    private Contact contact;
 
     @ToString.Exclude
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "idPerson")
