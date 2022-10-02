@@ -17,14 +17,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RepositoryFilter {
 
-    private int idClient;
     private String name;
     private String document;
     private String phone;
     private String email;
     private String place;
-    private String number;
-    private String complement;
     private String district;
     private String city;
     private String state;

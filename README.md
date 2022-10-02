@@ -41,7 +41,7 @@
 
 > Abra o projeto no Intellij (ou na sua IDE preferia), e execute-o utilizando o Maven.  
 > Para testar os endpoints no  <code>***Postman***</code>, abra-o  e importe o arquivo  <code>***postman_collection.json***</code> que se encontra na raiz do projeto.
-> A API está documentada com o <code>***Swagger***</code>, é só entrar no seu navegador e digitar  <code>***http://localhost:port/api/v1/swagger-ui.html***</code>.
+> A API está documentada com o <code>***Swagger***</code>, é só entrar no seu navegador e digitar  <code>***http://localhost:port/paginator/api/v1/swagger-ui.html***</code>.
 
 
 </br></br>

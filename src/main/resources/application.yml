@@ -1,3 +1,9 @@
+openapi:
+  application:
+    description: ${OPENAPI_DESCRIPTION:Exemplo de paginação utilizando Spring Boot e JPA Criteria.}
+    version: ${OPENAPI_VERSION:1.0.0}
+    title: ${OPENAPI_TITLE:Paginação}
+
 server:
   servlet:
     encoding:
