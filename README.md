@@ -44,7 +44,7 @@
 > A API está documentada com o <code>***Swagger***</code>, é só entrar no seu navegador e digitar  <code>***http://localhost:port/api/v1/swagger-ui.html***</code>.
 
 
-</br></br></br></br>
+</br></br>
 
 ## Tecnologias  <a id="tecnologias"></a>
 
