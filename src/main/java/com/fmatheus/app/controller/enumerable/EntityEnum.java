@@ -12,7 +12,11 @@ public enum EntityEnum {
     PHONE("phone"),
     PLACE("place"),
     CITY("city"),
-    STATE("state");
+    STATE("state"),
+    CONTACT("contact"),
+    ADDRESS("address"),
+    DISTRICT("district"),
+    ZIPCODE("zipCode");
 
 
     @Getter

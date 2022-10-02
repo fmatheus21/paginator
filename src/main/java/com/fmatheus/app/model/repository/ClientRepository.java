@@ -1,9 +1,11 @@
 package com.fmatheus.app.model.repository;
 
 import com.fmatheus.app.model.entity.Client;
+import com.fmatheus.app.model.repository.query.ClientRepositoryQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client, Integer> {
+public interface ClientRepository extends JpaRepository<Client, Integer>, ClientRepositoryQuery {
+
 }

@@ -2,6 +2,7 @@ package com.fmatheus.app.controller.converter.impl;
 
 import com.fmatheus.app.controller.converter.PersonConverter;
 import com.fmatheus.app.controller.dto.response.PersonDtoResponse;
+import com.fmatheus.app.controller.util.AppUtil;
 import com.fmatheus.app.model.entity.Person;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ public class PersonConverterImpl implements PersonConverter {
 
     @Override
     public PersonDtoResponse converterToResponse(Person person) {
+        person.setName(AppUtil.convertFirstUppercaseCharacter(person.getName()));
+        person.setDocument(AppUtil.removeSpecialCharacters(person.getDocument()));
         return this.modelMapper.map(person, PersonDtoResponse.class);
     }
 

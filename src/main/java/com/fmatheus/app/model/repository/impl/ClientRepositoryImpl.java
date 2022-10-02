@@ -57,8 +57,8 @@ public class ClientRepositoryImpl implements ClientRepositoryQuery {
 
         List<Predicate> predicates = new ArrayList<>();
         Join<Person, Client> joinPerson = root.join(EntityEnum.ID_PERSON.getValue());
-        Join<Contact, Person> joinContact = joinPerson.join(EntityEnum.ID_PERSON.getValue());
-        Join<Address, Person> joinAddress = joinPerson.join(EntityEnum.ID_PERSON.getValue());
+        Join<Contact, Person> joinContact = joinPerson.join(EntityEnum.CONTACT.getValue());
+        Join<Address, Person> joinAddress = joinPerson.join(EntityEnum.ADDRESS.getValue());
 
         if (Objects.nonNull(filter.getName())) {
             predicates.add(builder.like(builder.lower(joinPerson.get(EntityEnum.NAME.getValue())),
@@ -70,10 +70,6 @@ public class ClientRepositoryImpl implements ClientRepositoryQuery {
                     "%" + AppUtil.removeSpecialCharacters(filter.getDocument()) + "%"));
         }
 
-        if (Objects.nonNull(filter.getEmail())) {
-            predicates.add(builder.like(builder.lower(joinPerson.get(EntityEnum.EMAIL.getValue())),
-                    "%" + filter.getEmail().toLowerCase() + "%"));
-        }
 
         if (Objects.nonNull(filter.getPhone())) {
             predicates.add(builder.like(builder.lower(joinContact.get(EntityEnum.PHONE.getValue())),
@@ -82,7 +78,7 @@ public class ClientRepositoryImpl implements ClientRepositoryQuery {
 
         if (Objects.nonNull(filter.getEmail())) {
             predicates.add(builder.like(builder.lower(joinContact.get(EntityEnum.EMAIL.getValue())),
-                    "%" + filter.getEmail().toLowerCase() + "%"));
+                    "%" + filter.getEmail() + "%"));
         }
 
         if (Objects.nonNull(filter.getPlace())) {
@@ -100,8 +96,41 @@ public class ClientRepositoryImpl implements ClientRepositoryQuery {
                     "%" + AppUtil.removeDuplicateSpace(filter.getState()) + "%"));
         }
 
+        if (Objects.nonNull(filter.getDistrict())) {
+            predicates.add(builder.like(builder.lower(joinAddress.get(EntityEnum.DISTRICT.getValue())),
+                    "%" + AppUtil.removeDuplicateSpace(filter.getDistrict()) + "%"));
+        }
+
+        if (Objects.nonNull(filter.getZipCode())) {
+            predicates.add(builder.like(builder.lower(joinAddress.get(EntityEnum.ZIPCODE.getValue())),
+                    "%" + AppUtil.removeSpecialCharacters(filter.getZipCode()) + "%"));
+        }
+
+
         return predicates.toArray(new Predicate[0]);
 
+    }
+
+
+    /**
+     * Metodo responsavel por contar o total de registros.
+     *
+     * @param filter - Filtro de consulta
+     * @return Long
+     * @author Fernando Matheus
+     */
+    @Override
+    public Long total(RepositoryFilter filter) {
+        var builder = this.manager.getCriteriaBuilder();
+        CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);
+        Root<Client> root = criteriaQuery.from(Client.class);
+
+        Predicate[] predicates = createRestrictions(filter, builder, root);
+        criteriaQuery.where(predicates);
+
+        criteriaQuery.select(builder.count(root));
+
+        return this.manager.createQuery(criteriaQuery).getSingleResult();
     }
 
     /**
@@ -118,27 +147,6 @@ public class ClientRepositoryImpl implements ClientRepositoryQuery {
 
         typedQuery.setFirstResult(firstPageRecord);
         typedQuery.setMaxResults(totalRecordsPerPage);
-    }
-
-
-    /**
-     * Metodo responsavel por contar o total de registros.
-     *
-     * @param filter - Filtro de consulta
-     * @return Long
-     * @author Fernando Matheus
-     */
-    private Long total(RepositoryFilter filter) {
-        var builder = this.manager.getCriteriaBuilder();
-        CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);
-        Root<Client> root = criteriaQuery.from(Client.class);
-
-        Predicate[] predicates = createRestrictions(filter, builder, root);
-        criteriaQuery.where(predicates);
-
-        criteriaQuery.select(builder.count(root));
-
-        return this.manager.createQuery(criteriaQuery).getSingleResult();
     }
 
 }
