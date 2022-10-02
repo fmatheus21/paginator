@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "a71e4115-8c5f-47b0-9d91-1e39ce680f1f",
+		"name": "Paginator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7310810"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/paginator/api/v1/clients?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"paginator",
+						"api",
+						"v1",
+						"clients"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "name",
+							"value": "assis",
+							"disabled": true
+						},
+						{
+							"key": "document",
+							"value": "6753",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "9555",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "jessica",
+							"disabled": true
+						},
+						{
+							"key": "place",
+							"value": "avenida",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "centro",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "macapa",
+							"disabled": true
+						},
+						{
+							"key": "state",
+							"value": "ap",
+							"disabled": true
+						},
+						{
+							"key": "zipCode",
+							"value": "64010615",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
