@@ -32,7 +32,7 @@ spring:
     name: paginator
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${DATASOURCE_URL}
+    url: jdbc:mysql://localhost:3306/paginator?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
   jpa:
