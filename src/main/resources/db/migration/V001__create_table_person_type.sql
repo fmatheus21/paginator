@@ -3,7 +3,6 @@ CREATE TABLE person_type (
   name varchar(15) NOT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY id_UNIQUE (id),
-  UNIQUE KEY uuid_UNIQUE (uuid),
   UNIQUE KEY name_UNIQUE (name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
