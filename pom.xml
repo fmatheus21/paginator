@@ -10,9 +10,9 @@
     <!-- lookup parent from repository -->
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fmatheus</groupId>
-    <artifactId>paginator</artifactId>
+    <artifactId>example_paginator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>paginator</name>
+    <name>example_paginator</name>
     <description>Exemplo de consulta com paginação</description>
 
     <properties>

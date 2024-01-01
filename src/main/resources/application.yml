@@ -21,7 +21,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: ${SPRING_DATASOURCE_PASSWORD}
-    url: jdbc:mysql://localhost:3306/paginator?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/example_paginator?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
     username: root
   jackson:
     #default-property-inclusion: non_null
