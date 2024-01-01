@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.UUID;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -25,5 +25,17 @@ public class PersonType extends Base {
     @Size(max = 15)
     @Column(name = "name", nullable = false, length = 15)
     private String name;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Base base)) return false;
+        return Objects.equals(getId(), base.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 
 }

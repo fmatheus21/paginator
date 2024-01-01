@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.Objects;
+
 @Builder
 @Getter
 @Setter
@@ -31,5 +33,17 @@ public class Contact extends Base {
     @JoinColumn(name = "id_person", referencedColumnName = "id", nullable = false)
     @OneToOne(optional = false)
     private Person person;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Base base)) return false;
+        return Objects.equals(getId(), base.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 
 }

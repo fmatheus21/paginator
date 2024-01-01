@@ -10,7 +10,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Objects;
 
 
 @Getter
@@ -29,16 +28,5 @@ public class Base implements Serializable {
     @Column(name = "id", updatable = false, nullable = false)
     private Integer id;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Base base)) return false;
-        return Objects.equals(getId(), base.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
 
 }
