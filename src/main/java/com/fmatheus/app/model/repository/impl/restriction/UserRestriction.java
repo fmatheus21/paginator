@@ -44,8 +44,7 @@ public abstract class UserRestriction {
         }
 
         if (Objects.nonNull(filter.getDocument())) {
-            predicates.add(builder.like(builder.lower(joinPerson.get(EntityEnum.DOCUMENT.getValue())),
-                    PERCENT + CharacterUtil.removeSpecialCharacters(filter.getDocument()) + PERCENT));
+            predicates.add(builder.equal(joinPerson.get(EntityEnum.DOCUMENT.getValue()), CharacterUtil.removeSpecialCharacters(filter.getDocument())));
         }
 
         if (Objects.nonNull(filter.getEmail())) {
@@ -57,6 +56,7 @@ public abstract class UserRestriction {
             predicates.add(builder.like(builder.lower(root.get(EntityEnum.USERNAME.getValue())),
                     PERCENT + filter.getUsername().toLowerCase() + PERCENT));
         }
+
 
         return predicates.toArray(new Predicate[0]);
 
